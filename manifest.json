@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Complete Personal Info",
+    "version": "1.0.1",
+    "description": "Automatically fills in personal information on forms",
+    "permissions": ["storage"],
+    "service_worker": "background.js",
+    "options_page": "options.html",
+
+    "icons": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128":"images/icon.png"
+       }
+
+    
+    }

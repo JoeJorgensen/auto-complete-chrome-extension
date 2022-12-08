@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auto Complete Personal Info Options</title>
+  </head>
+  <body>
+    <h1>Auto Complete Personal Info Options</h1>
+    <form id="options-form">
+      <label>
+        First Name:
+        <input type="text" name="firstName" />
+      </label>
+      <br />
+      <label>
+        Last Name:
+        <input type="text" name="lastName" />
+      </label>
+      <br />
+      <label>
+        Phone Number:
+        <input type="tel" name="phoneNumber" />
+      </label>
+      <br />
+      <label>
+        Email:
+        <input type="email" name="email" />
+      </label>
+      <br />
+      <label>
+        Password:
+        <input type="password" name="password" />
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" name="firstNameAutoComplete" />
+        Auto Complete First Name
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" name="lastNameAutoComplete" />
+        Auto Complete Last Name
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" name="phoneNumberAutoComplete" />
+        Auto Complete Phone Number
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" name="emailAutoComplete" />
+        Auto Complete Email
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" name="passwordAutoComplete" />
+        Auto Complete Password
+      </label>
+      <br />
+      <button type="submit">Save Options</button>
+    </form>
+    <script>
+      // Set up listener for form submission
+      document.getElementById('options-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Create object with personal information and auto complete options
+        const personalInfo = {
+          firstName: {
+            value: event.target.firstName.value,
+            autoComplete: event.target.firstNameAutoComplete.checked
+          },
+          lastName: {
+            value: event.target.lastName.value,
+            autoComplete: event.target.lastNameAutoComplete.checked
+          },
+          phoneNumber: {
+            value: event.target.phoneNumber.value,
+            autoComplete: event.target.phoneNumberAutoComplete.checked
+          },
+          email: {
+            value: event.target.email.value,
+            autoComplete: event.target.emailAutoComplete.checked
+          },
+          password: {
+            value: event.target.password.value,
+            autoComplete: event.target.passwordAutoComplete.checked
+          }
+        };
+        // Save personal information to storage
+        chrome.storage.sync.set({[storageKey]: personalInfo}, () => {
+          // Show alert to confirm options saved
+          alert('Options saved successfully!');
+        });
+      });
+    </script>
+  </body>
+</html>
