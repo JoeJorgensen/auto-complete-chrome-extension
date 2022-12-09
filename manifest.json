@@ -1,18 +1,26 @@
 {
     "manifest_version": 3,
-    "name": "Auto Complete Personal Info",
+    "name": "Auto Complete Extension",
+    "description": "Saves and auto completes a user's personal information.",
     "version": "1.0.1",
-    "description": "Automatically fills in personal information on forms",
-    "permissions": ["storage"],
-    "service_worker": "background.js",
-    "options_page": "options.html",
-
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "service-worker.js",
+      "type": "persistent"
+    },
     "icons": {
-        "16": "images/icon.png",
-        "32": "images/icon.png",
-        "48": "images/icon.png",
-        "128":"images/icon.png"
-       }
-
-    
+      "16": "images/icon.png",
+      "32": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    },
+    "browser_action": {
+      "default_icon": "images/icon.png",
+      "default_title": "Auto Complete Extension",
+      "default_popup": "popup.html"
     }
+  }
+  
